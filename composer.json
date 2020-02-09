@@ -1,0 +1,42 @@
+{
+  "name": "diegobarbosasena/buscardor-cursos",
+  "description": "Projeto que busca cursos no site da alura",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Diego Barbosa Sena",
+      "email": "diegosena_93@hotmail.com"
+    }
+  ],
+  "require": {
+    "symfony/css-selector": "^5.0",
+    "guzzlehttp/guzzle": "^6.5",
+    "symfony/dom-crawler": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alura\\BuscadorDeCursos\\": "src"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "squizlabs/php_codesniffer": "^3.5",
+    "phan/phan": "^2.4"
+  },
+  "scripts": {
+    "test": "phpunit tests\\TestBuscadorDeCursos.php",
+    "cs": "phpcs --standard=PSR12 src/",
+    "phan": "phan --allow-polyfill-parser",
+    "check": [
+      "@phan",
+      "@cs",
+      "@test"
+    ],
+    "post-update-cmd": [
+      "@test"
+    ]
+  },
+  "scripts-descriptions": {
+    "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+  }
+}
